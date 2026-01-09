@@ -245,10 +245,14 @@
       display: block;
     }
 
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
     .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       background: rgba(147, 197, 253, 0.9);
       color: white;
       border: none;
@@ -261,20 +265,11 @@
       align-items: center;
       justify-content: center;
       transition: all 0.3s;
-      z-index: 10;
     }
 
     .carousel-btn:hover {
       background: var(--primary-green);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .carousel-btn.prev {
-      left: 10px;
-    }
-
-    .carousel-btn.next {
-      right: 10px;
+      transform: scale(1.1);
     }
 
     .carousel-indicators {
@@ -338,21 +333,28 @@
         html += `<img src="${img}" alt="Results ${index + 1}" class="carousel-image publication-image ${index === 0 ? 'active' : ''}" data-index="${index}" onerror="this.style.display='none'">`;
       });
       
+      html += '</div>';
+      
+      html += '<div class="carousel-controls">';
       html += `
         <button class="carousel-btn prev" onclick="changeImage('${pubId}', -1)">
           <i class="bi bi-chevron-left"></i>
-        </button>
-        <button class="carousel-btn next" onclick="changeImage('${pubId}', 1)">
-          <i class="bi bi-chevron-right"></i>
-        </button>
-      </div>
-      <div class="carousel-indicators">`;
+        </button>`;
+      
+      html += '<div class="carousel-indicators">';
       
       images.forEach((img, index) => {
         html += `<div class="carousel-indicator ${index === 0 ? 'active' : ''}" onclick="goToImage('${pubId}', ${index})"></div>`;
       });
       
       html += '</div>';
+      
+      html += `
+        <button class="carousel-btn next" onclick="changeImage('${pubId}', 1)">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>`;
+      
       return html;
     }
 

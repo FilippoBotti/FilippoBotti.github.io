@@ -18,7 +18,7 @@ function loadMLPSection() {
 
     .mlp-section-wrapper {
       width: 100%;
-      padding: 60px 0;
+      padding: 30px 0;
       margin: 0;
     }
 
@@ -33,9 +33,10 @@ function loadMLPSection() {
     }
 
     .mlp-wrapper {
+      margin-top: 40px;
       position: relative;
       width: 100%;
-      height: 600px; /* altezza fissa per evitare oscillazioni */
+      height: 350px; /* altezza fissa per evitare oscillazioni */
     }
 
     svg.connections {
@@ -90,24 +91,15 @@ function loadMLPSection() {
     }
 
 
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
       .mlp-section-wrapper {
         display: none;
         }
     }
 
-   
-    @media (max-width: 992px) {
-      .mlp-wrapper {
-        height: 400px; /* altezza fissa per evitare oscillazioni */
-        }
-    }
+  
 
-   @media (max-width: 1200px) {
-      .mlp-wrapper {
-        height: 500px; /* altezza fissa per evitare oscillazioni */
-        }
-    }
+  
 
     .layer {
       display: flex;
@@ -316,8 +308,16 @@ function loadMLPSection() {
       box-shadow: none;
     }
 
+     @media (max-width: 1200px) {
+      .mlp-section-wrapper {
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+      }
+  }
     /* TABLET: mostra hidden-layer-1 e hidden-layer-2 */
     @media (min-width: 768px) {
+    
       .mlp-network {
         gap: 40px;
         padding: 30px 15px;
@@ -484,7 +484,12 @@ function loadMLPSection() {
   const html = `
     <section class="mlp-section-wrapper">
       <div class="container">
+      <div class="text-center desktop-bio-text">PhD Student in Deep Learning 
+Researcher in Generative AI, Efficient Architectures & Vision Models.  
+<strong>Looking for a Research Internship in Generative AI and Vision.</strong>
+    </div>
         <div class="mlp-container">
+        
           <div class="mlp-wrapper">
            
 
@@ -750,7 +755,7 @@ function initMLPSection() {
       
       const data = shortCVData[type] || [];
       const limitedData = data.slice(0, 4);
-      
+      console.log(shortCVData);
       outputLayer.innerHTML = '';
       
       limitedData.forEach(item => {

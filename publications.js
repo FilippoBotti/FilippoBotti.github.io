@@ -12,9 +12,8 @@ const shortCVData = {
     publications: [
       { title: "Mamba-st: State space model for efficient style transfer", date: "2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)", description: "Filippo Botti, Alex Ergasti, Leonardo Rossi, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati" },
       { title: "U-shape mamba: State space model for faster diffusion", date: "2025 Proceedings of the Computer Vision and Pattern Recognition Conference", description: "Alex Ergasti, Filippo Botti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati" },
-      { title: "Avoiding shortcuts in unpaired image-to-image translation", date: "2022 International Conference on Image Analysis and Processing", description: "Tomaso Fontanini, Filippo Botti, Massimo Bertozzi, Andrea Prati" },
       { title: "Masked Style Transfer for Source-Coherent Image-to-Image Translation", date: "2024 Applied Sciences", description: "Filippo Botti, Tomaso Fontanini, Massimo Bertozzi, Andrea Prati" },
-    ]
+    ],
   };
   const detailedCVData = {
     education: [
@@ -26,13 +25,6 @@ const shortCVData = {
       { title: "Member of the IT and statistics committee", subtitle:"Associazione Italiana Arbitri (AIA)", duration: "2023 - Present", description: "Associazione Italiana Arbitri (AIA)\nDevelopment of web platforms and mobile applications for the internal management of associated referees." },
       { title: "Mobile developer", subtitle:"Net4Market - CSAmed", duration: "2021 - 2022", description: "Net4Market - CSAmed\nDevelopment of the mobile application for “Network Imprese”, a network for small and medium-sized Italian businesses." },
     ],
-    publications: [
-      { title: "SISMA: Semantic Face Image Synthesis with Mamba", subtitle:"International Conference on Image Analysis and Processing", duration: "2025", description: "Filippo Botti, Alex Ergasti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati" },
-      { title: "U-shape mamba: State space model for faster diffusion", subtitle:"Proceedings of the Computer Vision and Pattern Recognition Conference", duration: "2025", description: "Alex Ergasti, Filippo Botti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati" },
-      { title: "Mamba-st: State space model for efficient style transfer", subtitle:"IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)", duration: "2025", description: "Filippo Botti, Alex Ergasti, Leonardo Rossi, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati" },
-      { title: "Masked Style Transfer for Source-Coherent Image-to-Image Translation", subtitle:"Applied Sciences", duration: "2024", description: "Filippo Botti, Tomaso Fontanini, Massimo Bertozzi, Andrea Prati" },
-      { title: "Avoiding shortcuts in unpaired image-to-image translation", subtitle:"International Conference on Image Analysis and Processing", duration: "2022", description: "Tomaso Fontanini, Filippo Botti, Massimo Bertozzi, Andrea Prati" },
-    ],
     teaching: [
       { title: "Data Analytics and Business Intelligence with AI ", subtitle:"Higher Technical Institute - ITS Olivetti, Parma (Italy)", duration: "2026", description: "GenAI assistance in data analysis: generating queries in natural language, interpreting graphs/reports, generating summaries/insights. BI tools and AI integrations for interpretation." },
       { title: "Software Lifecycle Management", subtitle:"Professional Institute - FormaFuturo, Parma (Italy)", duration: "2025", description: "Software Engineering basic course for working students." },
@@ -41,55 +33,67 @@ const shortCVData = {
       { title: "Tutor for ”Fundamentals of computer science”", subtitle:"University of Parma, Parma (Italy)", duration: "2022 - 2023 / 2025 - Present", description: "Tutoring for first-year students (Python and C++)\nTeacher: Prof. Michele Tomaiuolo/Prof. Massimo Bertozzi" },
     ],
     skills: [
-      { title: "Research Focus", description: "My main area of research is deep learning, with a significant focus on generative AI, particularly style transfer \
-                and the design of efficient architectures optimized for speed and resource usage. Through this years, I gained \
-                extensive experience with PyTorch, designing model architectures, and conducting performance analysis, specifically \
-                concentrating on emerging RNNs like Mamba, RWKV, and xLSTM. These efforts reflect my broader goal of advancing \
-                scalable and sustainable AI systems, a field that I believe can benefit everyone" },
-      { title: "Frameworks and Libraries", description: "Python, C, C++, Pytorch, Flutter, React Native, C#, Java, SQL, Angular" },
-      { title: "Tools and Platforms", description: "Git, UNIX, Latex, Unity, Godot, VS Code" },
-      { title: "Soft Skills", description: "Problem-solving, Teamwork, Communication, Time Management, Adaptability" },
+      { title: "Research Areas", description: "Generative Models, Diffusion Models, Image-to-Image Translation, Style Transfer, Efficient Architectures, State Space Models" },
+      { title: "Frameworks and Libraries", description: "PyTorch, Python, C/C++, currently learning CUDA" },
+      { title: "Tooling", description: " Experiment tracking, performance profiling, Git, UNIX, LaTex" },
     ]
   };
+
   const sections = {
     education: 'Education',
-    work: 'Work Experience',
     publications: 'Publications',
+    other_publications: 'Other Publications',
     teaching: 'Teaching',
+    work: 'Work Experience',
     skills: 'Research and Development'
   };
   
+  
+  const otherPublicationsData = [
+      
+      {
+      "title": "SISMA: Semantic Face Image Synthesis with Mamba",
+      "publisher": "International Conference on Image Analysis and Processing",
+      "year": "2025",
+      "authors": "Filippo Botti, Alex Ergasti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati",
+      "abstract": "Diffusion Models have become very popular for Semantic Image Synthesis (SIS) of human faces. Nevertheless, their training and inference is computationally expensive and their computational requirements are high due to the quadratic complexity of attention layers. In this paper, we propose a novel architecture called SISMA, based on the recently proposed Mamba. SISMA generates high quality samples by controlling their shape using a semantic mask at a reduced computational demand. We validated our approach through comprehensive experiments with CelebAMask-HQ, revealing that our architecture not only achieves a better FID score yet also operates at three times the speed of state-of-the-art architectures. This indicates that the proposed design is a viable, lightweight substitute to transformer-based models.",
+      "bibtex": "@misc{botti2025sismasemanticfaceimage,\ntitle={SISMA: Semantic Face Image Synthesis with Mamba},\nauthor={Botti, Filippo and Ergasti, Alex and Fontanini, Tomaso and Ferrari, Claudio and Bertozzi, Massimo and Prati, Andrea},\nyear={2025},\neprint={2509.17651},\narchivePrefix={pdf},\nprimaryClass={cs.CV},\nurl={https://arxiv.org/abs/2509.17651}\n}",
+      "architecture_path": "./img_publications/sisma/arch.png",
+      "results_path": [
+          "./img_publications/sisma/results.png",
+      ],
+      "github": "",
+      "pdf": "https://arxiv.org/abs/2509.17651"
+    },
+    {
+      "title": "Avoiding shortcuts in unpaired image-to-image translation",
+      "publisher": "International Conference on Image Analysis and Processing",
+      "year": "2022",
+      "authors": "Tomaso Fontanini, Filippo Botti, Massimo Bertozzi, Andrea Prati",
+      "abstract": "Image-to-image translation is a very popular task in deep \
+          learning. In particular, one of the most effective and popular approach\
+          to solve it, when a paired dataset of examples is not available, is to\
+          use a cycle consistency loss. This means forcing an inverse mapping in\
+          order to reverse the output of the network back to the source domain\
+          and reduce the space of all the possible mappings. Nevertheless, the network could learn to take shortcuts and softly apply the target domain in\
+          order to make the reverse translation easier therefore producing unsatisfactory results. For this reason, in this paper an additional constraint\
+          is introduced during the training phase of an unpaired image-to-image\
+          translation network; this forces the model to have the same attention\
+          both when applying the target domains and when reversing the translation. This approach has been tested on different datasets showing a\
+          consistent improvement over the generated results.",
+      "bibtex": "@inproceedings{fontanini2022avoiding,\ntitle={Avoiding shortcuts in unpaired image-to-image translation},\nauthor={Fontanini, Tomaso and Botti, Filippo and Bertozzi, Massimo and Prati, Andrea},\nbooktitle={International Conference on Image Analysis and Processing},\npages={463--475},\nyear={2022},\norganization={Springer}\n}",
+      "architecture_path": "./img_publications/avoiding_shortcut/arch.png",
+      "results_path": [
+          "./img_publications/avoiding_shortcut/results1.png",
+          "./img_publications/avoiding_shortcut/results2.png",
+          "./img_publications/avoiding_shortcut/results3.png"
+      ],
+      "github": "https://github.com/FilippoBotti/Avoiding-Shortcuts-in-Unpaired-Image-to-Image-Translation",
+      "pdf": "https://link.springer.com/chapter/10.1007/978-3-031-06427-2_39"
+    }
+  ]
+
   const publicationsData = [
-  {
-    "title": "SISMA: Semantic Face Image Synthesis with Mamba",
-    "publisher": "International Conference on Image Analysis and Processing",
-    "year": "2025",
-    "authors": "Filippo Botti, Alex Ergasti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati",
-    "abstract": "Diffusion Models have become very popular for Semantic Image Synthesis (SIS) of human faces. Nevertheless, their training and inference is computationally expensive and their computational requirements are high due to the quadratic complexity of attention layers. In this paper, we propose a novel architecture called SISMA, based on the recently proposed Mamba. SISMA generates high quality samples by controlling their shape using a semantic mask at a reduced computational demand. We validated our approach through comprehensive experiments with CelebAMask-HQ, revealing that our architecture not only achieves a better FID score yet also operates at three times the speed of state-of-the-art architectures. This indicates that the proposed design is a viable, lightweight substitute to transformer-based models.",
-    "bibtex": "@misc{botti2025sismasemanticfaceimage,\ntitle={SISMA: Semantic Face Image Synthesis with Mamba},\nauthor={Botti, Filippo and Ergasti, Alex and Fontanini, Tomaso and Ferrari, Claudio and Bertozzi, Massimo and Prati, Andrea},\nyear={2025},\neprint={2509.17651},\narchivePrefix={pdf},\nprimaryClass={cs.CV},\nurl={https://arxiv.org/abs/2509.17651}\n}",
-    "architecture_path": "./img_publications/sisma/arch.png",
-    "results_path": [
-        "./img_publications/sisma/results.png",
-    ],
-    "github": "",
-    "pdf": "https://arxiv.org/abs/2509.17651"
-  },
-  {
-    "title": "U-shape mamba: State space model for faster diffusion",
-    "publisher": "Proceedings of the Computer Vision and Pattern Recognition Conference",
-    "year": "2025",
-    "authors": "Alex Ergasti, Filippo Botti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati",
-    "abstract": "Diffusion models have become the most popular approach for high-quality image generation, but their high computational cost still remains a significant challenge. To address this problem, we propose U-Shape Mamba (USM), a novel diffusion model that leverages Mamba-based layers within a U-Net-like hierarchical structure. By progressively reducing sequence length in the encoder and restoring it in the decoder through Mamba blocks, USM significantly lowers computational overhead while maintaining strong generative capabilities. Experimental results against Zigma, which is currently the most efficient Mamba-based diffusion model, demonstrate that USM achieves one-third the GFlops, requires less memory and is faster, while outperforming Zigma in image quality. Frechet Inception Distance (FID) is improved by 15.3, 0.84 and 2.7 points on AFHQ, CelebAHQ and COCO datasets, respectively. These findings highlight USM as a highly efficient and scalable solution for diffusion-based generative models, making high-quality image synthesis more accessible to the research community while reducing computational costs.",
-    "bibtex": "@inproceedings{ergasti2025u, \ntitle={U-shape mamba: State space model for faster diffusion}, \nauthor={Ergasti, Alex and Botti, Filippo and Fontanini, Tomaso and Ferrari, Claudio and Bertozzi, Massimo and Prati, Andrea}, \nbooktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},\npages={3251--3258},\nyear={2025}\n}",
-    "architecture_path": "./img_publications/ushape/arch.png",
-    "results_path": [
-        "./img_publications/ushape/results1.png",
-        "./img_publications/ushape/results2.png",
-        "./img_publications/ushape/results3.png"
-    ],
-    "github": "https://github.com/ErgastiAlex/U-Shape-Mamba",
-    "pdf": "https://arxiv.org/abs/2504.13499"
-  },
   {
     "title": "Mamba-st: State space model for efficient style transfer",
     "publisher": "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
@@ -126,29 +130,20 @@ const shortCVData = {
     "pdf": "https://www.mdpi.com/2076-3417/14/17/7876"
   },
   {
-    "title": "Avoiding shortcuts in unpaired image-to-image translation",
-    "publisher": "International Conference on Image Analysis and Processing",
-    "year": "2022",
-    "authors": "Tomaso Fontanini, Filippo Botti, Massimo Bertozzi, Andrea Prati",
-    "abstract": "Image-to-image translation is a very popular task in deep \
-        learning. In particular, one of the most effective and popular approach\
-        to solve it, when a paired dataset of examples is not available, is to\
-        use a cycle consistency loss. This means forcing an inverse mapping in\
-        order to reverse the output of the network back to the source domain\
-        and reduce the space of all the possible mappings. Nevertheless, the network could learn to take shortcuts and softly apply the target domain in\
-        order to make the reverse translation easier therefore producing unsatisfactory results. For this reason, in this paper an additional constraint\
-        is introduced during the training phase of an unpaired image-to-image\
-        translation network; this forces the model to have the same attention\
-        both when applying the target domains and when reversing the translation. This approach has been tested on different datasets showing a\
-        consistent improvement over the generated results.",
-    "bibtex": "@inproceedings{fontanini2022avoiding,\ntitle={Avoiding shortcuts in unpaired image-to-image translation},\nauthor={Fontanini, Tomaso and Botti, Filippo and Bertozzi, Massimo and Prati, Andrea},\nbooktitle={International Conference on Image Analysis and Processing},\npages={463--475},\nyear={2022},\norganization={Springer}\n}",
-    "architecture_path": "./img_publications/avoiding_shortcut/arch.png",
+    "title": "U-shape mamba: State space model for faster diffusion",
+    "publisher": "Proceedings of the Computer Vision and Pattern Recognition Conference",
+    "year": "2025",
+    "authors": "Alex Ergasti, Filippo Botti, Tomaso Fontanini, Claudio Ferrari, Massimo Bertozzi, Andrea Prati",
+    "abstract": "Diffusion models have become the most popular approach for high-quality image generation, but their high computational cost still remains a significant challenge. To address this problem, we propose U-Shape Mamba (USM), a novel diffusion model that leverages Mamba-based layers within a U-Net-like hierarchical structure. By progressively reducing sequence length in the encoder and restoring it in the decoder through Mamba blocks, USM significantly lowers computational overhead while maintaining strong generative capabilities. Experimental results against Zigma, which is currently the most efficient Mamba-based diffusion model, demonstrate that USM achieves one-third the GFlops, requires less memory and is faster, while outperforming Zigma in image quality. Frechet Inception Distance (FID) is improved by 15.3, 0.84 and 2.7 points on AFHQ, CelebAHQ and COCO datasets, respectively. These findings highlight USM as a highly efficient and scalable solution for diffusion-based generative models, making high-quality image synthesis more accessible to the research community while reducing computational costs.",
+    "bibtex": "@inproceedings{ergasti2025u, \ntitle={U-shape mamba: State space model for faster diffusion}, \nauthor={Ergasti, Alex and Botti, Filippo and Fontanini, Tomaso and Ferrari, Claudio and Bertozzi, Massimo and Prati, Andrea}, \nbooktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},\npages={3251--3258},\nyear={2025}\n}",
+    "architecture_path": "./img_publications/ushape/arch.png",
     "results_path": [
-        "./img_publications/avoiding_shortcut/results1.png",
-        "./img_publications/avoiding_shortcut/results2.png",
-        "./img_publications/avoiding_shortcut/results3.png"
+        "./img_publications/ushape/results1.png",
+        "./img_publications/ushape/results2.png",
+        "./img_publications/ushape/results3.png"
     ],
-    "github": "https://github.com/FilippoBotti/Avoiding-Shortcuts-in-Unpaired-Image-to-Image-Translation",
-    "pdf": "https://link.springer.com/chapter/10.1007/978-3-031-06427-2_39"
-  }
+    "github": "https://github.com/ErgastiAlex/U-Shape-Mamba",
+    "pdf": "https://arxiv.org/abs/2504.13499"
+  },
+  
 ];

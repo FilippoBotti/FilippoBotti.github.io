@@ -401,23 +401,25 @@
     function loadPublications() {
       try {
         const publications = getPublicationsData();
+        const otherPublications = getOtherPublicationsData();
+        const allPublications = [...publications, ...otherPublications];
         const container = document.getElementById('publications-container');
         
         // Controlla se c'è un hash nell'URL
         const hash = window.location.hash.substring(1); // Rimuove il #
         
-        let publicationsToShow = publications;
+        let publicationsToShow = allPublications;
         
         // Se c'è un hash, filtra per mostrare solo quella pubblicazione
         if (hash) {
-          publicationsToShow = publications.filter(pub => {
+          publicationsToShow = allPublications.filter(pub => {
             const pubId = pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
             return pubId === hash;
           });
           
           // Se non trova la pubblicazione, mostra tutte
           if (publicationsToShow.length === 0) {
-            publicationsToShow = publications;
+            publicationsToShow = allPublications;
           }
         }
         

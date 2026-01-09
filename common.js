@@ -46,22 +46,6 @@ function loadFooter() {
             <p class="mb-2">&copy; 2026 Filippo Botti. All rights reserved.</p>
             <p class="footer-subtitle mb-0">PhD Student in Information Technology</p>
           </div>
-            <div class="col-12 text-center">
-            <div class="footer-links">
-              <a href="https://github.com/FilippoBotti" target="_blank" rel="noopener noreferrer" class="footer-link">
-                <i class="bi bi-github"></i> GitHub
-              </a>
-              <a href="https://scholar.google.com/citations?user=jQcJIsQAAAAJ&hl=it" target="_blank" rel="noopener noreferrer" class="footer-link">
-                <i class="bi bi-google"></i> Scholar
-              </a>
-              <a href="https://www.linkedin.com/in/filippo-botti-a42245145/" target="_blank" rel="noopener noreferrer" class="footer-link">
-                <i class="bi bi-linkedin"></i> LinkedIn
-              </a>
-              <a href="mailto:filippo.botti@unipr.it" class="footer-link">
-                <i class="bi bi-envelope"></i> Email
-              </a>
-            </div>
-          </div>
         </div>
         <div class="row mt-4">
           <div class="col-12 text-center">
@@ -85,3 +69,14 @@ function getPublicationsData() {
   // I dati vengono caricati da publications.js
   return publicationsData;
 }
+
+function getOtherPublicationsData() {
+  // I dati vengono caricati da publications.js
+  return otherPublicationsData;
+}
+
+function getShortCVData() {
+  // I dati vengono caricati da mlp.js
+  return shortCVData;
+}
+

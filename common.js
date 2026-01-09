@@ -3,26 +3,26 @@ function loadNavbar(activePage = '') {
   const navbar = `
     <nav class="navbar navbar-expand-xl navbar-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="sito.html">Filippo Botti <span class="d-none d-lg-inline" style="font-size: 0.9rem; font-weight: 400;">PhD Student in Information Technology</span></a>
+        <a class="navbar-brand" href="index.html">Filippo Botti <span class="d-none d-lg-inline" style="font-size: 0.9rem; font-weight: 400;">PhD Student in Information Technology</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="sito.html#cv-education">Education</a>
+              <a class="nav-link" href="index.html#cv-education">Education</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sito.html#cv-work">Work Experience</a>
+              <a class="nav-link" href="index.html#cv-work">Work Experience</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sito.html#cv-publications">Publications</a>
+              <a class="nav-link" href="index.html#cv-publications">Publications</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sito.html#cv-teaching">Teaching</a>
+              <a class="nav-link" href="index.html#cv-teaching">Teaching</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="sito.html#cv-skills">R&D</a>
+              <a class="nav-link" href="index.html#cv-skills">R&D</a>
             </li>
           </ul>
         </div>

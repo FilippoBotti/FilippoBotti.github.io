@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications - Filippo Botti</title>
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .publication-card {
+      background: linear-gradient(135deg, rgba(147, 197, 253, 0.05) 0%, rgba(147, 197, 253, 0.1) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      border-left: 4px solid var(--primary-green);
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 12px var(--shadow-primary);
+      transition: all 0.3s;
+      cursor: default;
+    }
+
+    .publication-card:hover {
+      box-shadow: 0 6px 16px var(--shadow-primary);
+      transform: translateY(-2px);
+    }
+
+    .publication-card.single-view {
+      cursor: default;
+    }
+
+    .publication-card.single-view:hover {
+      transform: none;
+    }
+
+    .publication-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .publication-details {
+      display: block;
+    }
+
+    .publication-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      cursor: default;
+    }
+
+    .publication-card.single-view .publication-title {
+      cursor: default;
+    }
+
+    .publication-authors {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .publication-venue {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .publication-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-publication {
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      border: none;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .btn-github {
+      background: linear-gradient(135deg, #333 0%, #555 100%);
+      color: white;
+    }
+
+    .btn-github:hover {
+      background: linear-gradient(135deg, #555 0%, #777 100%);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .btn-pdf {
+      background: linear-gradient(135deg, #b31b1b 0%, #d32f2f 100%);
+      color: white;
+    }
+
+    .btn-pdf:hover {
+      background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%);
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    .publication-section {
+      margin-top: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--primary-green);
+    }
+
+    .abstract-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      text-align: justify;
+    }
+
+    .publication-image {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      box-shadow: 0 2px 4px var(--shadow-primary);
+    }
+
+    .bibtex-container {
+      position: relative;
+      margin-top: 1rem;
+    }
+
+    .bibtex-code {
+      background: #f8f9fa;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: #333;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .btn-copy-bibtex {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--primary-green);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-copy-bibtex:hover {
+      background: var(--primary-green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-copy-bibtex.copied {
+      background: #10b981;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary-green);
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      transition: all 0.3s;
+    }
+
+    .back-link:hover {
+      color: var(--primary-green-dark);
+      gap: 0.7rem;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      max-width: 800px;
+      height: 200px;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      border-radius: 8px;
+      border: 2px dashed var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 1rem;
+    }
+
+    .image-carousel {
+      position: relative;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .carousel-image {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 4px var(--shadow-primary);
+      display: none;
+    }
+
+    .carousel-image.active {
+      display: block;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(147, 197, 253, 0.9);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: var(--primary-green);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-btn.prev {
+      left: 10px;
+    }
+
+    .carousel-btn.next {
+      right: 10px;
+    }
+
+    .carousel-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .carousel-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-300);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .carousel-indicator.active {
+      background: var(--primary-green);
+      width: 24px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="navbar-container"></div>
+
+  <section class="info-section py-5">
+    <div class="container">
+      
+      <div id="publications-container">
+        <!-- Le pubblicazioni verranno caricate qui dinamicamente -->
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="publications.js"></script>
+  <script src="common.js"></script>
+  <script>
+    // Carica navbar e footer immediatamente
+    loadNavbar('publications');
+    loadFooter();
+
+    // Funzione per generare il carosello delle immagini
+    function generateResultsCarousel(images, pubId) {
+      if (images.length === 1) {
+        // Una sola immagine, niente carosello
+        return `<img src="${images[0]}" alt="Results" class="publication-image" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Results image: ${images[0]}</div>'">`;
+      }
+      
+      // Più immagini, crea carosello
+      let html = '<div class="image-carousel" id="carousel-' + pubId + '">';
+      
+      images.forEach((img, index) => {
+        html += `<img src="${img}" alt="Results ${index + 1}" class="carousel-image publication-image ${index === 0 ? 'active' : ''}" data-index="${index}" onerror="this.style.display='none'">`;
+      });
+      
+      html += `
+        <button class="carousel-btn prev" onclick="changeImage('${pubId}', -1)">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next" onclick="changeImage('${pubId}', 1)">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
+      <div class="carousel-indicators">`;
+      
+      images.forEach((img, index) => {
+        html += `<div class="carousel-indicator ${index === 0 ? 'active' : ''}" onclick="goToImage('${pubId}', ${index})"></div>`;
+      });
+      
+      html += '</div>';
+      return html;
+    }
+
+    // Funzione per cambiare immagine
+    function changeImage(pubId, direction) {
+      const carousel = document.getElementById('carousel-' + pubId);
+      const images = carousel.querySelectorAll('.carousel-image');
+      const indicators = carousel.parentElement.querySelectorAll('.carousel-indicator');
+      
+      let currentIndex = 0;
+      images.forEach((img, index) => {
+        if (img.classList.contains('active')) {
+          currentIndex = index;
+        }
+      });
+      
+      // Rimuovi active dalla corrente
+      images[currentIndex].classList.remove('active');
+      indicators[currentIndex].classList.remove('active');
+      
+      // Calcola nuovo indice
+      let newIndex = currentIndex + direction;
+      if (newIndex < 0) newIndex = images.length - 1;
+      if (newIndex >= images.length) newIndex = 0;
+      
+      // Aggiungi active alla nuova
+      images[newIndex].classList.add('active');
+      indicators[newIndex].classList.add('active');
+    }
+
+    // Funzione per andare a un'immagine specifica
+    function goToImage(pubId, index) {
+      const carousel = document.getElementById('carousel-' + pubId);
+      const images = carousel.querySelectorAll('.carousel-image');
+      const indicators = carousel.parentElement.querySelectorAll('.carousel-indicator');
+      
+      // Rimuovi active da tutte
+      images.forEach(img => img.classList.remove('active'));
+      indicators.forEach(ind => ind.classList.remove('active'));
+      
+      // Aggiungi active alla selezionata
+      images[index].classList.add('active');
+      indicators[index].classList.add('active');
+    }
+
+    function loadPublications() {
+      try {
+        const publications = getPublicationsData();
+        const container = document.getElementById('publications-container');
+        
+        // Controlla se c'è un hash nell'URL
+        const hash = window.location.hash.substring(1); // Rimuove il #
+        
+        let publicationsToShow = publications;
+        
+        // Se c'è un hash, filtra per mostrare solo quella pubblicazione
+        if (hash) {
+          publicationsToShow = publications.filter(pub => {
+            const pubId = pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+            return pubId === hash;
+          });
+          
+          // Se non trova la pubblicazione, mostra tutte
+          if (publicationsToShow.length === 0) {
+            publicationsToShow = publications;
+          }
+        }
+        
+        publicationsToShow.forEach(pub => {
+          const card = document.createElement('div');
+          card.className = 'publication-card';
+          const cardId = pub.title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+          card.id = cardId;
+          
+          card.innerHTML = `
+            <div class="publication-header">
+              <h2 class="publication-title">
+                ${pub.title}
+              </h2>
+            </div>
+            
+            <div class="publication-details">
+              <div style="margin-bottom: 1rem;">
+                <p class="publication-authors">${pub.authors}</p>
+                <p class="publication-venue">${pub.publisher}, ${pub.year}</p>
+                
+                <div class="publication-links">
+                  ${pub.github ? `<a href="${pub.github}" target="_blank" rel="noopener noreferrer" class="btn-publication btn-github" onclick="event.stopPropagation()">
+                    <i class="bi bi-github"></i> GitHub
+                  </a>` : ''}
+                  ${pub.pdf ? `<a href="${pub.pdf}" target="_blank" rel="noopener noreferrer" class="btn-publication btn-pdf" onclick="event.stopPropagation()">
+                    <i class="bi bi-file-text"></i> Paper
+                  </a>` : ''}
+                </div>
+              </div>
+              
+              ${pub.abstract ? `<div class="publication-section">
+                <h3 class="section-title">Abstract</h3>
+                <p class="abstract-text">${pub.abstract}</p>
+              </div>` : ''}
+              
+              ${pub.architecture_path ? `<div class="publication-section">
+                <h3 class="section-title">Architecture</h3>
+                <img src="${pub.architecture_path}" alt="${pub.title} Architecture" class="publication-image" onerror="this.parentElement.innerHTML='<div class=\\'image-placeholder\\'>Architecture image: ${pub.architecture_path}</div>'">
+              </div>` : ''}
+              
+              ${pub.results_path && pub.results_path.length > 0 ? `<div class="publication-section">
+                <h3 class="section-title">Results</h3>
+                ${generateResultsCarousel(pub.results_path, cardId)}
+              </div>` : ''}
+              
+              ${pub.bibtex ? `<div class="publication-section">
+                <h3 class="section-title">Citation</h3>
+                <div class="bibtex-container">
+                  <button class="btn-copy-bibtex" onclick="copyBibtex('${cardId}'); event.stopPropagation()">
+                    <i class="bi bi-clipboard"></i>
+                    <span class="copy-text">Copy BibTeX</span>
+                  </button>
+                  <pre class="bibtex-code" id="bibtex-${cardId}">${pub.bibtex}</pre>
+                </div>
+              </div>` : ''}
+            </div>
+          `;
+          
+          // Se c'è un hash nell'URL, marca come single-view
+          if (hash && cardId === hash) {
+            card.classList.add('single-view');
+          }
+          
+          container.appendChild(card);
+        });
+      } catch (error) {
+        console.error('Error loading publications:', error);
+        document.getElementById('publications-container').innerHTML = 
+          '<p class="text-center text-muted">Error loading publications. Please try again later.</p>';
+      }
+    }
+    
+    function copyBibtex(pubId) {
+      const bibtexElement = document.getElementById(`bibtex-${pubId}`);
+      const text = bibtexElement.textContent;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        const button = bibtexElement.previousElementSibling;
+        const originalHTML = button.innerHTML;
+        
+        button.innerHTML = '<i class="bi bi-check-circle"></i> <span class="copy-text">Copied!</span>';
+        button.classList.add('copied');
+        
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy BibTeX to clipboard');
+      });
+    }
+    
+    // Carica le pubblicazioni al caricamento della pagina
+    window.addEventListener('load', loadPublications);
+  </script>
+
+</body>
+
+</html>

@@ -42,11 +42,11 @@ function loadFooter() {
     <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div class="col-12 text-center mb-3">
             <p class="mb-2">&copy; 2026 Filippo Botti. All rights reserved.</p>
             <p class="footer-subtitle mb-0">PhD Student in Information Technology</p>
           </div>
-          <div class="col-md-6 text-center text-md-end">
+            <div class="col-12 text-center">
             <div class="footer-links">
               <a href="https://github.com/FilippoBotti" target="_blank" rel="noopener noreferrer" class="footer-link">
                 <i class="bi bi-github"></i> GitHub

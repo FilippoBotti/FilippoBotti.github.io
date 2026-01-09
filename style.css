@@ -372,7 +372,7 @@ body {
 .footer {
   background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
   color: var(--text-primary);
-  padding: 3rem 0 2rem;
+  padding: 16px;
   margin-top: 5rem;
   border-top: 3px solid var(--border-color);
   box-shadow: 0 -4px 20px var(--shadow-dark);
